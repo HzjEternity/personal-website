@@ -1,28 +1,39 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <SkinLayer v-if="isShowSkinLayer" @turnInto="turnInto"/>
+        <Main v-if="!isShowSkinLayer"/>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import SkinLayer from './pages/SkinLayer'
+    import Main from './pages/Main.vue'
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: 'app',
+        components: { Main, SkinLayer },
+        data () {
+            return {
+                isShowSkinLayer: true
+            }
+        },
+        created () {
+            this.isShowSkinLayer = window.location.pathname === '/'
+        },
+        methods: {
+            turnInto () {
+                this.isShowSkinLayer = false
+                history.pushState({}, '', `/main`)
+            }
+        }
+    }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="less">
+    html, body, #app {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
 </style>
