@@ -3,6 +3,7 @@
         <Header/>
         <Particles/>
         <Content />
+        <Footer/>
     </section>
 </template>
 
@@ -11,9 +12,10 @@
     import Header from './components/Header'
     import Content from './components/Content'
     import Particles from './components/Particles'
+    import Footer from './components/Footer'
     export default {
         name: "Main",
-        components: {Content, Header, Particles},
+        components: {Content, Header, Particles, Footer},
         data () {
             return {
                 isShowSkinLayer: true

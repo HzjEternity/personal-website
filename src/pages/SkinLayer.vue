@@ -30,11 +30,13 @@
             width: 100%;
             height: 100%;
             background: url("/img/bg.jpg") no-repeat;
+            background-size: 100% 100%;
+           // background: #806d9e;
             .innerBox{
                 width: 100%;
                 height: 100%;
                 overflow: hidden;
-                background-color: #000000a8;
+                background-color: rgba(0,0,0,0.4);
                 .title{
                     width: 600px;
                     color: #fff;

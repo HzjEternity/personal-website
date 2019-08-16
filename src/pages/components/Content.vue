@@ -2,6 +2,7 @@
     <div class="content">
         <Triangle/>
         <div class="content-inner"></div>
+        <Triangle :direction="false" :height="90"/>
     </div>
 </template>
 
@@ -17,7 +18,7 @@
 <style lang="less" scoped>
 .content {
     width: 100%;
-    margin: 150px auto 0;
+    margin: -90px auto 50px;
     position: relative;
     z-index: 99;
     .content-inner{

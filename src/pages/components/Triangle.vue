@@ -1,6 +1,6 @@
 <template>
-    <div ref="paintBox" class="paint-box">
-        <canvas ref="triangle" width="900" height="180"></canvas>
+    <div ref="paintBox" :height="height" class="paint-box">
+        <canvas ref="triangle" :height="height"></canvas>
     </div>
 </template>
 
@@ -8,16 +8,35 @@
     import {paintingPic} from '../../tools/index'
     export default {
         name: "Triangle",
+        props: {
+            direction:{
+                default: true,
+                type: Boolean
+            },
+            height: {
+                type: Number,
+                default: 180
+            }
+        },
         methods: {
             triangle () {
                 const width = this.$refs.paintBox.offsetWidth
-                const height =  this.$refs.triangle.height
                 this.$refs.triangle.width = width
                 const ctx = this.$refs.triangle.getContext("2d")
-                this.painting(ctx, width, height)
+                if (this.direction) {
+                    paintingPic(ctx, width, this.height)
+                    return
+                }
+                this.painting(ctx, width, this.height)
+
             },
             painting (ctx, width, height) {
-                paintingPic(ctx, width, height)
+                ctx.beginPath()
+                ctx.moveTo(0, 0)
+                ctx.lineTo(width, 0)
+                ctx.lineTo(width / 2, height)
+                ctx.fillStyle = '#fff'
+                ctx.fill()
             }
         },
         mounted () {
@@ -33,7 +52,9 @@
 
 <style lang="less" scoped>
 .paint-box{
-    height: 180px;
     width: 100%;
+    canvas{
+        display: block;
+    }
 }
 </style>
