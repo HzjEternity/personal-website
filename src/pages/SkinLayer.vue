@@ -39,7 +39,7 @@
                 background-color: rgba(0,0,0,0.4);
                 .title{
                     width: 600px;
-                    color: #fff;
+                    color: #4ab9ea;
                     font-size: 50px;
                     text-align: center;
                     line-height: 70px;
