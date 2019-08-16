@@ -32,6 +32,7 @@
 <style lang="less" scoped>
 .wrap{
     width: 100%;
+    min-height: 880px;
     height: 100%;
     overflow-y: auto;
     &::-webkit-scrollbar{

@@ -43,9 +43,6 @@
             const {triangle} = this
             triangle()
             window.addEventListener('resize',triangle)
-            /*window.onresize =function () {
-                triangle()
-            }*/
         }
     }
 </script>
